@@ -23,9 +23,9 @@
 [ext_resource type="Theme" uid="uid://c6df8equ2ccnk" path="res://scenes/themes/paper_theme.tres" id="58_augu2"]
 [ext_resource type="Script" uid="uid://c2uldf52uiag" path="res://scripts/UI/exit_selection.gd" id="60_kf5aa"]
 [ext_resource type="Script" uid="uid://h0pwkxh1sc7j" path="res://scripts/UI/new_game_selection.gd" id="60_t5ykj"]
-[ext_resource type="Script" path="res://scripts/UI/options_selection.gd" id="61_optsel"]
-[ext_resource type="Script" path="res://scripts/UI/hud.gd" id="62_hud"]
-[ext_resource type="Script" path="res://scripts/UI/options_menu.gd" id="63_opts"]
+[ext_resource type="Script" uid="uid://dfq05q8hpjois" path="res://scripts/UI/options_selection.gd" id="61_optsel"]
+[ext_resource type="Script" uid="uid://g7ss6qyeitpy" path="res://scripts/UI/hud.gd" id="62_hud"]
+[ext_resource type="Script" uid="uid://cxjby1wwvxxeg" path="res://scripts/UI/options_menu.gd" id="63_opts"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dgi5k"]
 animations = [{
@@ -46,33 +46,6 @@ animations = [{
 "name": &"default",
 "speed": 10.0
 }]
-
-[sub_resource type="Animation" id="Animation_gqmmt"]
-resource_name = "falde_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.06666666, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_yc10j"]
 length = 0.001
@@ -123,6 +96,33 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_gqmmt"]
+resource_name = "falde_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666666, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -361,11 +361,12 @@ script = ExtResource("21_pm3ni")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("62_hud")
 
 [node name="Panel" type="PanelContainer" parent="HUD"]
-offset_right = 118.0
-offset_bottom = 64.0
+offset_right = 88.0
+offset_bottom = 85.0
 theme = ExtResource("56_augu2")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/Panel"]
@@ -387,15 +388,14 @@ layout_mode = 2
 text = "coins: --"
 
 [node name="MessageLabel" type="Label" parent="HUD"]
-anchors_preset = 10
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -64.0
-offset_right = 64.0
 offset_top = 8.0
+offset_right = 64.0
 offset_bottom = 24.0
 horizontal_alignment = 1
-text = ""
 
 [node name="MessageTimer" type="Timer" parent="HUD"]
 wait_time = 1.5
@@ -425,8 +425,8 @@ layout_mode = 2
 
 [node name="TitleLabel" type="Label" parent="OptionsMenu/Panel/VBoxContainer"]
 layout_mode = 2
-horizontal_alignment = 1
 text = "options"
+horizontal_alignment = 1
 
 [node name="MusicRow" type="HBoxContainer" parent="OptionsMenu/Panel/VBoxContainer"]
 layout_mode = 2
@@ -466,8 +466,8 @@ text = "off"
 
 [node name="BackLabel" type="Label" parent="OptionsMenu/Panel/VBoxContainer"]
 layout_mode = 2
-horizontal_alignment = 1
 text = "back"
+horizontal_alignment = 1
 
 [node name="Transition" type="CanvasLayer" parent="."]
 process_mode = 3

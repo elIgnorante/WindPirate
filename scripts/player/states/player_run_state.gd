@@ -9,14 +9,14 @@ func enter():
 	sfx_timer.start()
 	
 func physics_update(delta):
-        move(delta, false)
+	move(delta, false)
 
-        if try_attack():
-                return
-        if input.jump_just_pressed:
-                change_state("jump")
-        elif not object.is_on_floor():
-                change_state("fall")
+	if try_attack():
+		return
+	if input.jump_just_pressed:
+		change_state("jump")
+	elif not object.is_on_floor():
+		change_state("fall")
 	elif input.x == 0:
 		change_state("idle")
 

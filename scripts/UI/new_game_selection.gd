@@ -1,4 +1,4 @@
 extends Label
 
 func select():
-await Game.main.start_new_game()
+	await Game.main.start_new_game()

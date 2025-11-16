@@ -18,62 +18,62 @@ var health := max_health
 var attacking := false
 
 func _ready():
-        origin = global_position
-        sprite.play("run")
-        sprite.flip_h = direction < 0
-        attack_area.body_entered.connect(_on_attack_area_body_entered)
-        attack_timer.timeout.connect(_on_attack_cooldown_timeout)
+		origin = global_position
+		sprite.play("run")
+		sprite.flip_h = direction < 0
+		attack_area.body_entered.connect(_on_attack_area_body_entered)
+		attack_timer.timeout.connect(_on_attack_cooldown_timeout)
 
 func _physics_process(delta):
-        if not attacking:
-                velocity.x = direction * speed
-        else:
-                velocity.x = 0
-        velocity.y = min(velocity.y + gravity * delta, 300.0)
-        move_and_slide()
-        if is_on_wall():
-                _flip_direction()
-        if not attacking and abs(global_position.x - origin.x) >= patrol_distance:
-                _flip_direction()
+		if not attacking:
+				velocity.x = direction * speed
+		else:
+				velocity.x = 0
+		velocity.y = min(velocity.y + gravity * delta, 300.0)
+		move_and_slide()
+		if is_on_wall():
+				_flip_direction()
+		if not attacking and abs(global_position.x - origin.x) >= patrol_distance:
+				_flip_direction()
 
 func _flip_direction():
-        direction *= -1
-        sprite.flip_h = direction < 0
+		direction *= -1
+		sprite.flip_h = direction < 0
 
 func _on_attack_area_body_entered(body):
-        if body is Player and attack_timer.is_stopped():
-                _attack(body)
+		if body is Player and attack_timer.is_stopped():
+				_attack(body)
 
 func _attack(player: Player):
-        attacking = true
-        sprite.play("attack")
-        player.take_damage(contact_damage, global_position, direction)
-        attack_timer.start(attack_cooldown)
-        await sprite.animation_finished
-        attacking = false
-        if health > 0:
-                sprite.play("run")
+		attacking = true
+		sprite.play("attack")
+		player.take_damage(contact_damage, global_position, direction)
+		attack_timer.start(attack_cooldown)
+		await sprite.animation_finished
+		attacking = false
+		if health > 0:
+				sprite.play("run")
 
 func take_damage(amount, source_position: Vector2, direction_override := 0):
-        if health <= 0:
-                return
-        health = max(0, health - amount)
-        var dir = -direction_override if direction_override != 0 else sign(global_position.x - source_position.x)
-        velocity.x = dir * speed
-        sprite.play("hit")
-        if health <= 0:
-                _die()
-                return
-        await sprite.animation_finished
-        sprite.play("run")
+		if health <= 0:
+				return
+		health = max(0, health - amount)
+		var dir = -direction_override if direction_override != 0 else sign(global_position.x - source_position.x)
+		velocity.x = dir * speed
+		sprite.play("hit")
+		if health <= 0:
+				_die()
+				return
+		await sprite.animation_finished
+		sprite.play("run")
 
 func _die():
-        attacking = true
-        attack_area.monitoring = false
-        collision_shape.disabled = true
-        sprite.play("death")
-        await sprite.animation_finished
-        queue_free()
+		attacking = true
+		attack_area.monitoring = false
+		collision_shape.disabled = true
+		sprite.play("death")
+		await sprite.animation_finished
+		queue_free()
 
 func _on_attack_cooldown_timeout():
-        attack_timer.stop()
+		attack_timer.stop()

@@ -1,0 +1,69 @@
+[gd_scene load_steps=14 format=3 uid="uid://frontpalmflag"]
+
+[ext_resource type="Texture2D" uid="uid://ccvauub6y22tt" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Platform.png" id="1_platform"]
+[ext_resource type="Texture2D" uid="uid://drrftrytj7cxn" path="res://assets/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="2_palm_base"]
+[ext_resource type="Texture2D" uid="uid://c6ayg7w4j1x32" path="res://assets/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 01.png" id="3_leaf_01"]
+[ext_resource type="Texture2D" uid="uid://ddetj3srxupbe" path="res://assets/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 02.png" id="4_leaf_02"]
+[ext_resource type="Texture2D" uid="uid://ygfjk2njbgj8" path="res://assets/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 03.png" id="5_leaf_03"]
+[ext_resource type="Texture2D" uid="uid://dc3t43jh3uj8y" path="res://assets/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 04.png" id="6_leaf_04"]
+[ext_resource type="Texture2D" uid="uid://c71k615gg531n" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 01.png" id="7_flag_01"]
+[ext_resource type="Texture2D" uid="uid://0nvv15awceml" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 02.png" id="8_flag_02"]
+[ext_resource type="Texture2D" uid="uid://bu03l65pqu1fa" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 03.png" id="9_flag_03"]
+[ext_resource type="Texture2D" uid="uid://bw5x8dgcrc7eu" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 04.png" id="10_flag_04"]
+[ext_resource type="Texture2D" uid="uid://byx7326vls7uo" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 05.png" id="11_flag_05"]
+[ext_resource type="Texture2D" uid="uid://31pbtv1wy2jw" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 06.png" id="12_flag_06"]
+[ext_resource type="Texture2D" uid="uid://ottqakc2sjpx" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 07.png" id="13_flag_07"]
+[ext_resource type="Texture2D" uid="uid://xn01g6phv1aj" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 08.png" id="14_flag_08"]
+[ext_resource type="Texture2D" uid="uid://c4hcofmek2yrn" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 09.png" id="15_flag_09"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tree"]
+animations = [{
+"frames": [{"duration": 0.12, "texture": ExtResource("3_leaf_01")}, {"duration": 0.12, "texture": ExtResource("4_leaf_02")}, {"duration": 0.12, "texture": ExtResource("5_leaf_03")}, {"duration": 0.12, "texture": ExtResource("6_leaf_04")}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flag"]
+animations = [{
+"frames": [{"duration": 0.08, "texture": ExtResource("7_flag_01")}, {"duration": 0.08, "texture": ExtResource("8_flag_02")}, {"duration": 0.08, "texture": ExtResource("9_flag_03")}, {"duration": 0.08, "texture": ExtResource("10_flag_04")}, {"duration": 0.08, "texture": ExtResource("11_flag_05")}, {"duration": 0.08, "texture": ExtResource("12_flag_06")}, {"duration": 0.08, "texture": ExtResource("13_flag_07")}, {"duration": 0.08, "texture": ExtResource("14_flag_08")}, {"duration": 0.08, "texture": ExtResource("15_flag_09")}],
+"loop": true,
+"name": &"default",
+"speed": 12.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(64, 12)
+
+[node name="FrontPalmFlag" type="Node2D"]
+
+[node name="Platform" type="Sprite2D" parent="."]
+position = Vector2(0, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("1_platform")
+
+[node name="PalmBase" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("2_palm_base")
+
+[node name="PalmLeaves" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -80)
+sprite_frames = SubResource("SpriteFrames_tree")
+animation = "default"
+playing = true
+
+[node name="Flag" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, -90)
+flip_h = true
+sprite_frames = SubResource("SpriteFrames_flag")
+animation = "default"
+playing = true
+
+[node name="Collision" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+shape = SubResource("RectangleShape2D_ground")
+position = Vector2(0, -6)

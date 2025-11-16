@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ctjk6hh7ka2co"]
+[gd_scene load_steps=32 format=3 uid="uid://ctjk6hh7ka2co"]
 
 [ext_resource type="Texture2D" uid="uid://8cmrmgyvvl73" path="res://assets/Palm Tree Island/Sprites/Background/Additional Sky.png" id="1_2wyq8"]
 [ext_resource type="Script" uid="uid://cmt6j7sjbrnvy" path="res://scripts/main.gd" id="1_e755i"]
@@ -23,6 +23,9 @@
 [ext_resource type="Theme" uid="uid://c6df8equ2ccnk" path="res://scenes/themes/paper_theme.tres" id="58_augu2"]
 [ext_resource type="Script" uid="uid://c2uldf52uiag" path="res://scripts/UI/exit_selection.gd" id="60_kf5aa"]
 [ext_resource type="Script" uid="uid://h0pwkxh1sc7j" path="res://scripts/UI/new_game_selection.gd" id="60_t5ykj"]
+[ext_resource type="Script" path="res://scripts/UI/options_selection.gd" id="61_optsel"]
+[ext_resource type="Script" path="res://scripts/UI/hud.gd" id="62_hud"]
+[ext_resource type="Script" path="res://scripts/UI/options_menu.gd" id="63_opts"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dgi5k"]
 animations = [{
@@ -279,6 +282,7 @@ script = ExtResource("60_t5ykj")
 layout_mode = 2
 size_flags_horizontal = 4
 text = "options"
+script = ExtResource("61_optsel")
 
 [node name="ExitLabel" type="Label" parent="MainMenu/MainMenuPanel/MainMenuContainer/SelectionPanel/SelectionContainer"]
 layout_mode = 2
@@ -346,12 +350,124 @@ script = ExtResource("20_jscy8")
 layout_mode = 2
 size_flags_horizontal = 4
 text = "options"
+script = ExtResource("61_optsel")
+from_pause = true
 
 [node name="MainMenuLabel" type="Label" parent="PauseMenu/PauseMenuPanel/PauseMenuContainer/SelectionPanel/SelectionContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "main menu"
 script = ExtResource("21_pm3ni")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("62_hud")
+
+[node name="Panel" type="PanelContainer" parent="HUD"]
+offset_right = 118.0
+offset_bottom = 64.0
+theme = ExtResource("56_augu2")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Panel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="HUD/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "level: --"
+
+[node name="HealthLabel" type="Label" parent="HUD/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "hp: --"
+
+[node name="CoinsLabel" type="Label" parent="HUD/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "coins: --"
+
+[node name="MessageLabel" type="Label" parent="HUD"]
+anchors_preset = 10
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_top = 8.0
+offset_bottom = 24.0
+horizontal_alignment = 1
+text = ""
+
+[node name="MessageTimer" type="Timer" parent="HUD"]
+wait_time = 1.5
+one_shot = true
+
+[node name="OptionsMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("63_opts")
+
+[node name="Panel" type="PanelContainer" parent="OptionsMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -50.0
+offset_right = 48.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("56_augu2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/Panel"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+text = "options"
+
+[node name="MusicRow" type="HBoxContainer" parent="OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/Panel/VBoxContainer/MusicRow"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "music"
+
+[node name="Value" type="Label" parent="OptionsMenu/Panel/VBoxContainer/MusicRow"]
+layout_mode = 2
+text = "100%"
+
+[node name="SFXRow" type="HBoxContainer" parent="OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/Panel/VBoxContainer/SFXRow"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "sfx"
+
+[node name="Value" type="Label" parent="OptionsMenu/Panel/VBoxContainer/SFXRow"]
+layout_mode = 2
+text = "60%"
+
+[node name="FullscreenRow" type="HBoxContainer" parent="OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/Panel/VBoxContainer/FullscreenRow"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "fullscreen"
+
+[node name="Value" type="Label" parent="OptionsMenu/Panel/VBoxContainer/FullscreenRow"]
+layout_mode = 2
+text = "off"
+
+[node name="BackLabel" type="Label" parent="OptionsMenu/Panel/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+text = "back"
 
 [node name="Transition" type="CanvasLayer" parent="."]
 process_mode = 3

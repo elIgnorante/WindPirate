@@ -1,0 +1,33 @@
+[gd_scene load_steps=11 format=3 uid="uid://levelexit"]
+
+[ext_resource type="Script" path="res://scripts/level_exit.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 01.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 02.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 03.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 04.png" id="5"]
+[ext_resource type="Texture2D" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 05.png" id="6"]
+[ext_resource type="Texture2D" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 06.png" id="7"]
+[ext_resource type="Texture2D" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 07.png" id="8"]
+[ext_resource type="Texture2D" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 08.png" id="9"]
+[ext_resource type="Texture2D" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Flag 09.png" id="10"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flag"]
+animations = [{"frames": [{"duration": 1.0, "texture": ExtResource("2")}, {"duration": 1.0, "texture": ExtResource("3")}, {"duration": 1.0, "texture": ExtResource("4")}, {"duration": 1.0, "texture": ExtResource("5")}, {"duration": 1.0, "texture": ExtResource("6")}, {"duration": 1.0, "texture": ExtResource("7")}, {"duration": 1.0, "texture": ExtResource("8")}, {"duration": 1.0, "texture": ExtResource("9")}, {"duration": 1.0, "texture": ExtResource("10")}], "loop": true, "name": &"default", "speed": 6.0}]
+
+[sub_resource type="RectangleShape2D" id="CollisionShape2D_exit"]
+extents = Vector2(10, 20)
+
+[node name="LevelExit" type="Area2D"]
+script = ExtResource("1")
+collision_layer = 0
+collision_mask = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_flag")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CollisionShape2D_exit")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

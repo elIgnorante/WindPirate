@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://backpalmtree"]
+
+[ext_resource type="Texture2D" uid="uid://di8dx1ng0pi4f" path="res://assets/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 02.png" id="1_vp9nq"]
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_sway"]
+resource_name = "sway"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.5, -2.5, 2.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sway"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"sway": SubResource("Animation_sway")
+}
+
+[node name="BackPalmTree" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_vp9nq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "sway"
+libraries = {
+"": SubResource("AnimationLibrary_sway")
+}

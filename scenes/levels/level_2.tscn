@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bgpul7thvwwjm"]
+[gd_scene load_steps=49 format=3 uid="uid://d562lvl2"]
 
 [ext_resource type="Texture2D" uid="uid://m40t3eednbui" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_kc3v0"]
 [ext_resource type="Script" uid="uid://vuirx6vg725d" path="res://scripts/level.gd" id="1_prmli"]
@@ -578,11 +578,11 @@ size = Vector2(16, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sword_hitbox"]
 size = Vector2(24, 10)
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 script = ExtResource("1_prmli")
-level_name = "level_1"
-next_level = "level_2"
-require_all_coins = true
+level_name = "level_2"
+next_level = ""
+require_all_coins = false
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_0ld40")
@@ -678,59 +678,62 @@ editor_draw_drag_margin = true
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="GoldCoin" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(96, 144)
+position = Vector2(16, 144)
 
 [node name="GoldCoin3" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(168, 144)
+position = Vector2(96, 80)
 
 [node name="GoldCoin5" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(208, 112)
+position = Vector2(180, 16)
 
 [node name="GoldCoin4" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(144, 144)
+position = Vector2(140, 48)
 
 [node name="GoldCoin2" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(120, 144)
+position = Vector2(48, 112)
 
 [node name="GoldCoin6" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(304, 48)
+position = Vector2(220, -32)
 
 [node name="GoldCoin7" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(256, 80)
+position = Vector2(260, -64)
 
 [node name="GoldCoin8" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(336, 16)
+position = Vector2(300, -96)
 
 [node name="GoldCoin9" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(272, -16)
+position = Vector2(340, -128)
 
 [node name="GoldCoin10" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(240, -48)
+position = Vector2(380, -160)
 
 [node name="GoldCoin11" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(208, -80)
+position = Vector2(420, -192)
 
 [node name="GoldCoin12" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(176, -112)
+position = Vector2(280, 40)
 
 [node name="GoldCoin13" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(240, -144)
+position = Vector2(320, 8)
 
 [node name="GoldCoin14" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(272, -176)
+position = Vector2(360, -24)
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Crabby" parent="Enemies" instance=ExtResource("49_crabby")]
-position = Vector2(200, 144)
+position = Vector2(128, 144)
 
 [node name="Crabby2" parent="Enemies" instance=ExtResource("49_crabby")]
-position = Vector2(320, -16)
+position = Vector2(288, -80)
+
+[node name="Crabby3" parent="Enemies" instance=ExtResource("49_crabby")]
+position = Vector2(360, -160)
 
 [node name="Sword" parent="." instance=ExtResource("43_st6wj")]
-position = Vector2(64, 144)
+position = Vector2(208, 16)
 
 [node name="LevelExit" parent="." instance=ExtResource("50_exit")]
-position = Vector2(360, -32)
+position = Vector2(416, -176)
 
 [connection signal="timeout" from="Player/FSM/Run/FootstepsTimer" to="Player/FSM/Run" method="_on_footsteps_timer_timeout"]

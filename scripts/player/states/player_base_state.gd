@@ -18,7 +18,13 @@ func apply_gravity(delta):
 	object.velocity.y = move_toward(object.velocity.y, Player.TERMINAL_VELOCITY, g * delta)
 
 func move(delta, apply_g, update_direction = true, direction = input.x):
-	accelerate(delta, direction)
-	if apply_g: apply_gravity(delta)
-	if update_direction: object.direction = direction
-	object.move_and_slide()
+        accelerate(delta, direction)
+        if apply_g: apply_gravity(delta)
+        if update_direction: object.direction = direction
+        object.move_and_slide()
+
+func try_attack():
+        if object.can_attack() and input.attack_just_pressed:
+                change_state("attack")
+                return true
+        return false

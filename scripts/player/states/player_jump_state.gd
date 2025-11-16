@@ -12,11 +12,13 @@ func enter():
 	sfx.play()
 	
 func physics_update(delta):
-	move(delta, true)
-	
-	if not variable_jump_height and not input.jump_pressed:
-		variable_jump_height = true
-		if object.velocity.y <= 0:
+        move(delta, true)
+
+        if try_attack():
+                return
+        if not variable_jump_height and not input.jump_pressed:
+                variable_jump_height = true
+                if object.velocity.y <= 0:
 			object.velocity.y /= 2
 	if object.velocity.y >= 0:
 		change_state("fall")

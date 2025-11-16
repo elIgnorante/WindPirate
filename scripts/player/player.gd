@@ -23,25 +23,7 @@ var attack_locked := false
 var invincible := false
 
 #Sword states
-var sword = false :
-        get: return sword
-        set (value):
-                if sword == value: return
-                sword = value
-                var current_anim = sprite.animation
-                var target_anim = current_anim
-                if value:
-                        target_anim += "_sword"
-                else:
-                        target_anim = target_anim.replace("_sword", "")
-                if sprite.sprite_frames.has_animation(target_anim):
-                        var progress = sprite.frame_progress
-                        var frame = sprite.frame
-                        sprite.play(target_anim)
-                        sprite.set_frame_and_progress(frame, progress)
-                sword_hitbox.visible = value
-                if not value:
-                        sword_hitbox.deactivate()
+var sword := false setget set_sword
 
 signal died
 signal jumped
@@ -49,12 +31,7 @@ signal landed
 signal health_changed(current, max)
 signal took_damage(current)
 
-var direction :
-	get: return direction
-	set(value):
-		if value == 0 or value == direction: return
-		direction = value
-		sprite.flip_h = value == -1
+var direction := 1 setget set_direction
 		
 func _ready():
         fsm.change_state("idle")
@@ -96,9 +73,34 @@ func take_damage(amount, source_position: Vector2, direction := 0):
                 died.emit()
 
 func heal(amount):
-        health = clamp(health + amount, 0, max_health)
-        health_changed.emit(health, max_health)
+	health = clamp(health + amount, 0, max_health)
+	health_changed.emit(health, max_health)
 
 func _on_invincibility_timer_timeout():
-        invincible = false
-        sprite.modulate = Color.WHITE
+	invincible = false
+	sprite.modulate = Color.WHITE
+
+func set_sword(value):
+	if sword == value:
+		return
+	sword = value
+	var current_anim = sprite.animation
+	var target_anim = current_anim
+	if value:
+		target_anim += "_sword"
+	else:
+		target_anim = target_anim.replace("_sword", "")
+	if sprite.sprite_frames.has_animation(target_anim):
+		var progress = sprite.frame_progress
+		var frame = sprite.frame
+		sprite.play(target_anim)
+		sprite.set_frame_and_progress(frame, progress)
+	sword_hitbox.visible = value
+	if not value:
+		sword_hitbox.deactivate()
+
+func set_direction(value):
+	if value == 0 or value == direction:
+		return
+	direction = value
+	sprite.flip_h = value == -1

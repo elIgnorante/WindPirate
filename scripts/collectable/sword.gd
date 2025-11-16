@@ -2,7 +2,10 @@ extends Area2D
 
 
 
-func _on_player_entered(player):
+func _on_player_entered(body):
+	if not (body is Player):
+		return
+	var player: Player = body
 	player.sword = true
 	$AnimatedSprite2D.visible = false
 	$PickupSwordSFX.play()

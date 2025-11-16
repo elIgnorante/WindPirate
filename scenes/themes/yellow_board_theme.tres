@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://blc05kq2yng6y"]
+
+[ext_resource type="Texture2D" uid="uid://c3carasmd8xu5" path="res://assets/Wood and Paper UI/Sprites/Prefabs/5.png" id="1_oys06"]
+[ext_resource type="FontFile" uid="uid://0obsvdyhdbkk" path="res://assets/small-text.png" id="2_s75sy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_veo81"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("1_oys06")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+default_font = ExtResource("2_s75sy")
+default_font_size = 8
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_veo81")

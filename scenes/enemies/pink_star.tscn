@@ -1,0 +1,120 @@
+[gd_scene load_steps=49 format=3 uid="uid://pink_star_enemy"]
+
+[ext_resource type="Script" path="res://scripts/enemies/pink_star.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 01.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 02.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 03.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 04.png" id="5"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 05.png" id="6"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 06.png" id="7"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 07.png" id="8"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 08.png" id="9"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/02-Run/Run 01.png" id="10"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/02-Run/Run 02.png" id="11"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/02-Run/Run 03.png" id="12"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/02-Run/Run 04.png" id="13"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/02-Run/Run 05.png" id="14"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/02-Run/Run 06.png" id="15"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/03-Jump/Jump 01.png" id="16"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/03-Jump/Jump 02.png" id="17"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/03-Jump/Jump 03.png" id="18"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/04-Fall/Fall 01.png" id="19"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/05-Ground/Ground 01.png" id="20"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/05-Ground/Ground 02.png" id="21"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/06-Anticipation/Anticipation 01.png" id="22"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/06-Anticipation/Anticipation 02.png" id="23"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/06-Anticipation/Anticipation 03.png" id="24"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/07-Attack/Attack 01.png" id="25"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/07-Attack/Attack 02.png" id="26"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/07-Attack/Attack 03.png" id="27"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/07-Attack/Attack 04.png" id="28"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/08-Hit/Hit 01.png" id="29"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/08-Hit/Hit 02.png" id="30"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/08-Hit/Hit 03.png" id="31"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/08-Hit/Hit 04.png" id="32"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/09-Dead Hit/Dead Hit 01.png" id="33"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/09-Dead Hit/Dead Hit 02.png" id="34"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/09-Dead Hit/Dead Hit 03.png" id="35"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/09-Dead Hit/Dead Hit 04.png" id="36"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/10-Dead Ground/Dead Ground 01.png" id="37"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/10-Dead Ground/Dead Ground 02.png" id="38"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/10-Dead Ground/Dead Ground 03.png" id="39"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/10-Dead Ground/Dead Ground 04.png" id="40"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/11-Attack Effect/Attack Effect 01.png" id="41"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/11-Attack Effect/Attack Effect 02.png" id="42"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/11-Attack Effect/Attack Effect 03.png" id="43"]
+[ext_resource type="Texture2D" path="res://assets/The Crusty Crew/Sprites/Pink Star/11-Attack Effect/Attack Effect 04.png" id="44"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pink_star"]
+animations = [{"frames": [{"duration": 1.0, "texture": ExtResource("2")}, {"duration": 1.0, "texture": ExtResource("3")}, {"duration": 1.0, "texture": ExtResource("4")}, {"duration": 1.0, "texture": ExtResource("5")}, {"duration": 1.0, "texture": ExtResource("6")}, {"duration": 1.0, "texture": ExtResource("7")}, {"duration": 1.0, "texture": ExtResource("8")}, {"duration": 1.0, "texture": ExtResource("9")}] , "loop": true, "name": &"idle", "speed": 8.0}, {"frames": [{"duration": 1.0, "texture": ExtResource("10")}, {"duration": 1.0, "texture": ExtResource("11")}, {"duration": 1.0, "texture": ExtResource("12")}, {"duration": 1.0, "texture": ExtResource("13")}, {"duration": 1.0, "texture": ExtResource("14")}, {"duration": 1.0, "texture": ExtResource("15")}] , "loop": true, "name": &"run", "speed": 12.0}, {"frames": [{"duration": 1.0, "texture": ExtResource("16")}, {"duration": 1.0, "texture": ExtResource("17")}, {"duration": 1.0, "texture": ExtResource("18")}] , "loop": false, "name": &"jump", "speed": 12.0}, {"frames": [{"duration": 1.0, "texture": ExtResource("19")}] , "loop": true, "name": &"fall", "speed": 8.0}, {"frames": [{"duration": 1.0, "texture": ExtResource("20")}, {"duration": 1.0, "texture": ExtResource("21")}] , "loop": false, "name": &"ground", "speed": 10.0}, {"frames": [{"duration": 1.0, "texture": ExtResource("22")}, {"duration": 1.0, "texture": ExtResource("23")}, {"duration": 1.0, "texture": ExtResource("24")}] , "loop": false, "name": &"anticipation", "speed": 10.0}, {"frames": [{"duration": 1.0, "texture": ExtResource("25")}, {"duration": 1.0, "texture": ExtResource("26")}, {"duration": 1.0, "texture": ExtResource("27")}, {"duration": 1.0, "texture": ExtResource("28")}] , "loop": false, "name": &"attack", "speed": 12.0}, {"frames": [{"duration": 1.0, "texture": ExtResource("29")}, {"duration": 1.0, "texture": ExtResource("30")}, {"duration": 1.0, "texture": ExtResource("31")}, {"duration": 1.0, "texture": ExtResource("32")}] , "loop": false, "name": &"hit", "speed": 12.0}, {"frames": [{"duration": 1.0, "texture": ExtResource("33")}, {"duration": 1.0, "texture": ExtResource("34")}, {"duration": 1.0, "texture": ExtResource("35")}, {"duration": 1.0, "texture": ExtResource("36")}] , "loop": false, "name": &"dead_hit", "speed": 12.0}, {"frames": [{"duration": 1.0, "texture": ExtResource("37")}, {"duration": 1.0, "texture": ExtResource("38")}, {"duration": 1.0, "texture": ExtResource("39")}, {"duration": 1.0, "texture": ExtResource("40")}] , "loop": false, "name": &"dead_ground", "speed": 12.0}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_attack_effect"]
+animations = [{"frames": [{"duration": 1.0, "texture": ExtResource("41")}, {"duration": 1.0, "texture": ExtResource("42")}, {"duration": 1.0, "texture": ExtResource("43")}, {"duration": 1.0, "texture": ExtResource("44")}] , "loop": false, "name": &"attack", "speed": 16.0}]
+
+[sub_resource type="RectangleShape2D" id="CollisionShape2D_body"]
+extents = Vector2(18, 16)
+
+[sub_resource type="RectangleShape2D" id="CollisionShape2D_attack"]
+extents = Vector2(22, 12)
+
+[sub_resource type="CircleShape2D" id="CollisionShape2D_detection"]
+radius = 80.0
+
+[node name="PinkStar" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1")
+collision_layer = 1
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pink_star")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AttackEffect" type="AnimatedSprite2D" parent="."]
+position = Vector2(20, -6)
+sprite_frames = SubResource("SpriteFrames_attack_effect")
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CollisionShape2D_body")
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(20, -6)
+collision_layer = 0
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CollisionShape2D_attack")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CollisionShape2D_detection")
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 1.0
+one_shot = true
+
+[node name="AnticipationTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="FloorCheckLeft" type="RayCast2D" parent="."]
+position = Vector2(-12, -6)
+target_position = Vector2(-8, 24)
+enabled = true
+
+[node name="FloorCheckRight" type="RayCast2D" parent="."]
+position = Vector2(12, -6)
+target_position = Vector2(8, 24)
+enabled = true
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="AnticipationTimer" to="." method="_on_anticipation_timeout"]

@@ -4,12 +4,13 @@ var variable_jump_height
 @onready var sfx = $JumpSFX
 
 func enter():
-	play("jump")
-	object.velocity.y = -300
-	object.velocity.x += input.x * Player.MAX_SPEED
-	variable_jump_height = false
-	input.jump_buffer = false
-	sfx.play()
+        play("jump")
+        object.velocity.y = -300
+        object.velocity.x += input.x * Player.MAX_SPEED
+        variable_jump_height = false
+        input.jump_buffer = false
+        sfx.play()
+        object.play_jump_dust()
 	
 func physics_update(delta):
 	move(delta, true)

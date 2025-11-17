@@ -1,20 +1,20 @@
 extends PlayerBaseState
 
-@onready var coyote_timer = $CoyoteTimer
-@onready var sfx = $LandingSFX
+@onready var coyote_timer: Timer = $CoyoteTimer
+@onready var sfx: AudioStreamPlayer = $LandingSFX
 
-func enter():
+func enter() -> void:
 	play("fall")
 	if fsm.previous_state != "jump":
 		coyote_timer.start()
 
-func physics_update(delta):
+func physics_update(delta: float) -> void:
 	move(delta, true)
 
 	if try_attack():
 		return
 
-	var can_coyote_jump := not coyote_timer.is_stopped()
+	var can_coyote_jump: bool = not coyote_timer.is_stopped()
 	if can_coyote_jump and input.jump_just_pressed:
 		change_state("jump")
 		return
@@ -25,5 +25,7 @@ func physics_update(delta):
 		else:
 			object.play_land_dust()
 			sfx.play()
-			change_state("idle" if input.x == 0 else "run")
-		
+			var target_state := "idle"
+			if input.x != 0:
+				target_state = "run"
+			change_state(target_state)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/traps/shooter_projectile.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/Shooter Traps/Sprites/Totems/Wood Spike/Idle/1.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/1.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/2.png" id="4"]
+[ext_resource type="Texture2D" path="res://assets/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/3.png" id="5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spike"]
+animations = [{"frames": [{"duration": 1.0, "texture": ExtResource("2")}] , "loop": true, "name": &"travel", "speed": 8.0}, {"frames": [{"duration": 1.0, "texture": ExtResource("3")}, {"duration": 1.0, "texture": ExtResource("4")}, {"duration": 1.0, "texture": ExtResource("5")}], "loop": false, "name": &"impact", "speed": 16.0}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spike"]
+extents = Vector2(6, 10)
+
+[node name="WoodSpike" type="Area2D" groups=["trap_projectile"]]
+script = ExtResource("1")
+collision_layer = 0
+collision_mask = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_spike")
+animation = &"travel"
+autoplay = "travel"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_spike")
+
+[node name="Lifetime" type="Timer" parent="."]
+wait_time = 4.5
+one_shot = true

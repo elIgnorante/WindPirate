@@ -26,11 +26,11 @@ func exit():
         if object.sprite.animation_looped.is_connected(_animation_looped_callable):
                 object.sprite.animation_looped.disconnect(_animation_looped_callable)
 
-func _on_animation_finished(_anim_name: StringName) -> void:
+func _on_animation_finished() -> void:
         if finished:
                 return
         finished = true
         object.died.emit()
 
-func _on_animation_looped(_anim_name: StringName) -> void:
-        _on_animation_finished(_anim_name)
+func _on_animation_looped() -> void:
+        _on_animation_finished()

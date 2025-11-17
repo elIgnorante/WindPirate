@@ -38,8 +38,8 @@ func _play_next_combo() -> void:
         object.start_attack(base_anim)
         object.velocity.x = 0
 
-func _on_animation_finished(anim_name: StringName = ""):
-        if anim_name != current_animation:
+func _on_animation_finished():
+        if object.sprite.animation != current_animation:
                 return
         if queued_combo:
                 queued_combo = false

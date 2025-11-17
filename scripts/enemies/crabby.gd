@@ -18,10 +18,12 @@ var health := max_health
 var attacking := false
 
 func _ready():
-		origin = global_position
-		sprite.play("run")
-		sprite.flip_h = direction < 0
+	origin = global_position
+	sprite.play("run")
+	sprite.flip_h = direction < 0
+	if not attack_area.body_entered.is_connected(_on_attack_area_body_entered):
 		attack_area.body_entered.connect(_on_attack_area_body_entered)
+	if not attack_timer.timeout.is_connected(_on_attack_cooldown_timeout):
 		attack_timer.timeout.connect(_on_attack_cooldown_timeout)
 
 func _physics_process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://frontpalmflag"]
+[gd_scene load_steps=14 format=3 uid="uid://bwar8ndc17pio"]
 
 [ext_resource type="Texture2D" uid="uid://ccvauub6y22tt" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/Platform.png" id="1_platform"]
 [ext_resource type="Texture2D" uid="uid://drrftrytj7cxn" path="res://assets/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="2_palm_base"]

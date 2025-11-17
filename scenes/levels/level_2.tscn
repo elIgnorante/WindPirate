@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://d562lvl2"]
+[gd_scene load_steps=58 format=3 uid="uid://d562lvl2"]
 
 [ext_resource type="Texture2D" uid="uid://m40t3eednbui" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_kc3v0"]
 [ext_resource type="Script" uid="uid://vuirx6vg725d" path="res://scripts/level.gd" id="1_prmli"]
@@ -51,6 +51,7 @@
 [ext_resource type="Script" uid="uid://c1app3lwyc2o1" path="res://scripts/player/sword_hitbox.gd" id="48_hitbox"]
 [ext_resource type="PackedScene" uid="uid://crabbyen" path="res://scenes/enemies/crabby.tscn" id="49_crabby"]
 [ext_resource type="PackedScene" uid="uid://levelexit" path="res://scenes/props/level_exit.tscn" id="50_exit"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/fierce_tooth.tscn" id="50_px4x2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dp3eg"]
 texture = ExtResource("1_kc3v0")
@@ -680,7 +681,7 @@ editor_draw_drag_margin = true
 position = Vector2(-84, -13)
 
 [node name="GoldCoin3" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(96, 80)
+position = Vector2(51, 147)
 
 [node name="GoldCoin5" parent="Coins" instance=ExtResource("42_dy85j")]
 position = Vector2(-47, -137)
@@ -719,7 +720,7 @@ position = Vector2(145, -142)
 position = Vector2(366, 21)
 
 [node name="GoldCoin15" parent="Coins" instance=ExtResource("42_dy85j")]
-position = Vector2(333, 114)
+position = Vector2(331, 114)
 
 [node name="GoldCoin16" parent="Coins" instance=ExtResource("42_dy85j")]
 position = Vector2(334, 83)
@@ -766,10 +767,28 @@ position = Vector2(-128, 148)
 position = Vector2(273, 17)
 
 [node name="Crabby2" parent="Enemies" instance=ExtResource("49_crabby")]
-position = Vector2(383, -105)
+position = Vector2(384, -105)
+
+[node name="Crabby4" parent="Enemies" instance=ExtResource("49_crabby")]
+position = Vector2(581, 145)
+
+[node name="Crabby5" parent="Enemies" instance=ExtResource("49_crabby")]
+position = Vector2(461, 151)
 
 [node name="Crabby3" parent="Enemies" instance=ExtResource("49_crabby")]
-position = Vector2(477, 147)
+position = Vector2(143, 52)
+
+[node name="FierceTooth" parent="Enemies" instance=ExtResource("50_px4x2")]
+position = Vector2(30, 149)
+metadata/_edit_group_ = true
+
+[node name="FierceTooth2" parent="Enemies" instance=ExtResource("50_px4x2")]
+position = Vector2(514, 143)
+metadata/_edit_group_ = true
+
+[node name="FierceTooth3" parent="Enemies" instance=ExtResource("50_px4x2")]
+position = Vector2(486, 143)
+metadata/_edit_group_ = true
 
 [node name="Sword" parent="." instance=ExtResource("43_st6wj")]
 position = Vector2(210, 21)

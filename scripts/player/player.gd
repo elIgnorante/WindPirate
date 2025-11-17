@@ -251,12 +251,14 @@ func play_sword_effect(animation_name: StringName) -> void:
         sword_effect.play()
 
 
-func _on_dust_animation_finished(_anim_name: StringName, effect: AnimatedSprite2D) -> void:
-        effect.visible = false
+func _on_dust_animation_finished(effect: AnimatedSprite2D) -> void:
+        if is_instance_valid(effect):
+                effect.visible = false
 
 
-func _on_sword_effect_finished(_anim_name: StringName) -> void:
-        sword_effect.visible = false
+func _on_sword_effect_finished() -> void:
+        if is_instance_valid(sword_effect):
+                sword_effect.visible = false
 
 
 func die() -> void:

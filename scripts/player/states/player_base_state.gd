@@ -6,10 +6,10 @@ var input:
 		return object.input
 	
 func play(animation):
-        if object.sword and object.sprite.sprite_frames.has_animation(animation + "_sword"):
-                animation += "_sword"
-        object.sprite.play(animation)
-        return animation
+		if object.sword and object.sprite.sprite_frames.has_animation(animation + "_sword"):
+				animation += "_sword"
+		object.sprite.play(animation)
+		return animation
 	
 func accelerate(delta, direction = input.x):
 	var mult = Player.AIR_MULTIPLIER if not object.is_on_floor() else 1.0

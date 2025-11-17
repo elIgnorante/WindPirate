@@ -13,13 +13,17 @@ func physics_update(delta):
 
 	if try_attack():
 		return
-	if not coyote_timer.is_stopped() && input.jump_just_pressed:
+
+	var can_coyote_jump := not coyote_timer.is_stopped()
+	if can_coyote_jump and input.jump_just_pressed:
 		change_state("jump")
-		if object.is_on_floor():
-				if input.jump_buffer:
-						change_state("jump")
-				else:
-						object.play_land_dust()
-						change_state("idle" if input.x == 0 else "run")
-						sfx.play()
+		return
+
+	if object.is_on_floor():
+		if input.jump_buffer:
+			change_state("jump")
+		else:
+			object.play_land_dust()
+			sfx.play()
+			change_state("idle" if input.x == 0 else "run")
 		

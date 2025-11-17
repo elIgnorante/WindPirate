@@ -4,9 +4,10 @@ extends PlayerBaseState
 @onready var sfx_timer = $FootstepsTimer
 
 func enter():
-	play("run")
-	sfx.play()
-	sfx_timer.start()
+        play("run")
+        sfx.play()
+        sfx_timer.start()
+        object.play_run_dust(true)
 	
 func physics_update(delta):
 	move(delta, false)
@@ -22,7 +23,8 @@ func physics_update(delta):
 
 
 func exit():
-	sfx_timer.stop()
+        sfx_timer.stop()
+        object.play_run_dust(false)
 
 func _on_footsteps_timer_timeout() -> void:
 	sfx.play()

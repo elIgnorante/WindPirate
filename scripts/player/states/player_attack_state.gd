@@ -19,11 +19,13 @@ func enter():
 
 func physics_update(_delta):
         move(_delta, true, false, 0)
+        if air_attack and object.is_on_floor() and not finished:
+                finished = true
         if not finished and input.attack_just_pressed:
                 queued_combo = true
         if finished:
-            if object.input.x != 0:
-                change_state("run")
+                if object.input.x != 0:
+                        change_state("run")
             else:
                 change_state("idle")
 

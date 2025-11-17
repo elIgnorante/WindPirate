@@ -15,10 +15,11 @@ func physics_update(delta):
 		return
 	if not coyote_timer.is_stopped() && input.jump_just_pressed:
 		change_state("jump")
-	if object.is_on_floor():
-		if input.jump_buffer:
-			change_state("jump")
-		else:
-			change_state("idle" if input.x == 0 else "run")
-			sfx.play()
+        if object.is_on_floor():
+                if input.jump_buffer:
+                        change_state("jump")
+                else:
+                        object.play_land_dust()
+                        change_state("idle" if input.x == 0 else "run")
+                        sfx.play()
 		
